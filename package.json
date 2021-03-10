@@ -1,0 +1,19 @@
+{
+  "name": "memo-test",
+  "version": "1.0.0",
+  "description": "memo-test-game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Game",
+    "memo",
+    "test"
+  ],
+  "author": "Adriano Cappelletti",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.6.0"
+  }
+}

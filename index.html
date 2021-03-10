@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Memo Test</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <ul class="nav d-flex justify-content-around">
+        <li class="nav-item mt-2">
+          <button type="button" class="btn btn-dark">JUGAR</button>
+        </li>
+        <li class="nav-item d-flex flex-column align-items-center">
+          <h1>MEMO-TEST!</h1>
+          <p class="text-warning bg-dark">
+            INTENTOS: <span id="intentos">0</span>
+          </p>
+        </li>
+        <li class="nav-item mt-2">
+          <button type="button" class="btn btn-dark">RESETEAR</button>
+        </li>
+      </ul>
+    </div>
+    <main class="container d-flex flex-column align-items-center mt-2">
+      <div class="row w-50 mb-3">
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-1"></div>
+        </div>
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-2"></div>
+        </div>
+        <div class="col- card-body">
+          <div class="card-front"></div>
+          <div class="card-back back-3"></div>
+        </div>
+      </div>
+      <div class="row w-50 mb-3">
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-4"></div>
+        </div>
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-5"></div>
+        </div>
+        <div class="col- card-body">
+          <div class="card-front"></div>
+          <div class="card-back back-6"></div>
+        </div>
+      </div>
+      <div class="row w-50 mb-3">
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-7"></div>
+        </div>
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-8"></div>
+        </div>
+        <div class="col- card-body">
+          <div class="card-front"></div>
+          <div class="card-back back-9"></div>
+        </div>
+      </div>
+      <div class="row w-50">
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-10"></div>
+        </div>
+        <div class="col- card-body mr-3">
+          <div class="card-front"></div>
+          <div class="card-back back-11"></div>
+        </div>
+        <div class="col- card-body">
+          <div class="card-front"></div>
+          <div class="card-back back-12"></div>
+        </div>
+      </div>
+
+      <!-- <div id="images">
+        <img class="memo-img" src="/img/angular.png" alt="Angular logo" />
+        <img class="memo-img" src="/img/css.png" alt="Css logo" />
+        <img class="memo-img" src="/img/html.png" alt="Html logo" />
+        <img class="memo-img" src="/img/JS.png" alt="JavaScript logo"/>
+        <img class="memo-img" src="/img/node.svg" alt="Node logo" />
+        <img class="memo-img" src="/img/react.png" alt="React logo" />
+      </div> -->
+    </main>
+    <footer class="footer credits">
+      <div class="container-fluid d-flex justify-content-center">
+        <p>
+          Coded By:
+          <a
+            style="text-decoration: none"
+            href="https://github.com/AdriCappelletti"
+            target="_BLANK"
+            >Adri Cappelletti</a
+          >
+        </p>
+        <img
+          class="p-light"
+          src="img/violet-bulb.png"
+          alt="A pixel art violet light bulb"
+        />
+      </div>
+    </footer>
+    <script src="/JS/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-body {
+  height: 140px;
+  background-color: black;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  border-radius: 0.5em;
+  box-shadow: 0 3px 7px 3px rgba(0, 0, 0, 0.2);
+  perspective: 1000px;
+}
+
+.card-body.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    transform: rotateY(180deg);
+}
+
+.card-front {
+  background-color:#000;
+  transform: rotateY(180deg);
+}
+
+
+
+.col- {
+  padding: 0;
+}
+
+.credits {
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: #ffffff;
+}
+
+.credits__name {
+  text-decoration: none;
+  color: #50cc;
+}
+
+.p-light {
+  width: 30px;
+  height: 30px;
+}
+
+.back-1{
+    background-image: url(/img/angular.png);
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    
+}
+
+
+
