@@ -2,12 +2,12 @@
 //
 const cardsBody = document.querySelectorAll(".card-body");
 const cardsBack = document.querySelectorAll(".card-back");
-const image1 = "/img/angular.png";
-const image2 = "/img/css.png";
-const image3 = "/img/html.png";
-const image4 = "/img/JS.png";
-const image5 = "/img/node.png";
-const image6 = "/img/react.png";
+const image1 = "img/angular.png";
+const image2 = "img/css.png";
+const image3 = "img/html.png";
+const image4 = "img/JS.png";
+const image5 = "img/node.png";
+const image6 = "img/react.png";
 
 const images = [image1,image2,image3,image4,image5,image6];
 
