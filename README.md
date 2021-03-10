@@ -1,6 +1,6 @@
 # Memo-test
 Personal recreation of the Memo-test game
 
-#instalation
+# instalation
 use
 npm -i
