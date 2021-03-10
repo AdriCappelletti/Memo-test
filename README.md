@@ -1,2 +1,6 @@
 # Memo-test
-Memo-test Game
+Personal recreation of the Memo-test game
+
+#instalation
+use
+npm -i
