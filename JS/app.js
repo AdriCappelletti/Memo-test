@@ -1,42 +1,43 @@
-// Crear x cantidad de divs para cada una de las imagenes
-//
-/* 
-  determinar que la cantidad de cartas a comparar son 2
-  al hacer click en una carta guardar su valor en un Array
-  y lo mismo con la siguiente. 
-  Al array ser igual a 2 se determina que el array esta completo y se comparan sus valores
-  si sus valores son iguales se eliminan ambas cartas y se suma 1 punto
-  al llegar a 6 puntos termina el juego
-  */
-
+let attempts = document.querySelector("#intentos");
 const $playBtn = document.querySelector("#start-game");
-const cardsFront = document.querySelectorAll(".card-front");
+const $resetBtn = document.querySelector("#reset");
+const $playAgainBtn = document.querySelector("#play-again");
 const cardsBody = document.querySelectorAll(".card-body");
+const cardsFront = document.querySelectorAll(".card-front");
 const cardsBack = document.querySelectorAll(".card-back");
+// Images
 const image1 = "img/angular.png";
 const image2 = "img/css.png";
 const image3 = "img/html.png";
 const image4 = "img/JS.png";
 const image5 = "img/node.png";
 const image6 = "img/react.png";
-
 const images = [image1, image2, image3, image4, image5, image6];
-let comparedCards = []
-let comparedImages = []
 
+let comparedCards = [];
+let comparedImages = [];
 
+let attemptsCounter = 0;
+let points = 0;
 $playBtn.onclick = function () {
+  $playBtn.disabled = "true";
+  $playBtn.classList.replace("btn-success", "btn-dark");
+  $resetBtn.classList.replace("btn-dark", "btn-success");
   const newArray = reorderArray(images);
   imgAssignement(newArray);
-  roundHandler();
-  
+  catchCards();
+  enableFlip();
+};
+$resetBtn.onclick = function () {
+  location.reload();
 };
 
 function roundHandler() {
-  comparedCards = []
-  comparedImages = []
-  enableFlip();
-  catchCards();
+  if (points === 6) {
+    gameEnd();
+  }
+  comparedCards = [];
+  comparedImages = [];
 }
 
 function reorderArray(a) {
@@ -61,6 +62,19 @@ function enableFlip() {
   });
 }
 
+function unflipCards(cards) {
+  cards.forEach((card) => {
+    card.classList.remove("flipped");
+  });
+}
+
+function disableUserClick() {
+  console.log('se desabilita')
+  cardsBody.forEach((card) => {
+    card.onclick = function () {};
+  });
+}
+
 function imgAssignement(newArray) {
   let counter = 0;
   newArray.forEach((img) => {
@@ -70,7 +84,6 @@ function imgAssignement(newArray) {
   });
 }
 
-
 function compareCards(arr) {
   for (let i = 0; i < 1; i++) {
     const firstCard = arr[i];
@@ -78,11 +91,16 @@ function compareCards(arr) {
     console.log(firstCard === secondCard);
     if (firstCard === secondCard) {
       deleteCards(comparedCards);
+      ++points;
+      console.log(points);
+    } else {
+      unflipCards(comparedCards);
+      attempts.textContent = ++attemptsCounter;
     }
   }
-  roundHandler ()
+  
+  roundHandler();
 }
-
 
 function catchCards() {
   cardsBody.forEach((card, i) => {
@@ -99,12 +117,20 @@ function catchCards() {
   });
 }
 
-
-
 function deleteCards(cards) {
   cards.forEach((card) => {
     card.style.visibility = "hidden";
   });
-  comparedCards = []
-  comparedImages = []
+}
+
+function gameEnd() {
+  const main = document.querySelector("main");
+  const winSection = document.querySelector("#win");
+  main.classList.replace("d-flex", "d-none");
+  winSection.classList.replace("d-none", "d-flex");
+  $resetBtn.disabled = 'true'
+
+  $playAgainBtn.addEventListener("click", function () {
+    location.reload();
+  });
 }

@@ -8,6 +8,8 @@ body{
   height: 100vh;
 }
 
+
+
 .card-body {
   height: 140px;
   background-color: black;
@@ -77,5 +79,7 @@ body{
     
 }
 
-
+#win{
+  height: 50%;
+}
 

@@ -15,9 +15,9 @@
   </head>
   <body>
     <div class="container-fluid">
-      <ul class="nav d-flex justify-content-around">
+      <ul id="main-nav" class="nav d-flex justify-content-around">
         <li class="nav-item mt-2">
-          <button type="button" id="start-game" class="btn btn-dark">JUGAR</button>
+          <button type="button" id="start-game" class="btn btn-success">JUGAR</button>
         </li>
         <li class="nav-item d-flex flex-column align-items-center">
           <h1>MEMO-TEST!</h1>
@@ -26,7 +26,7 @@
           </p>
         </li>
         <li class="nav-item mt-2">
-          <button type="button" class="btn btn-dark">RESETEAR</button>
+          <button type="button" class="btn btn-dark" id="reset">RESETEAR</button>
         </li>
       </ul>
     </div>
@@ -87,16 +87,11 @@
           <div class="card-back back-12"></div>
         </div>
       </div>
-
-      <!-- <div id="images">
-        <img class="memo-img" src="/img/angular.png" alt="Angular logo" />
-        <img class="memo-img" src="/img/css.png" alt="Css logo" />
-        <img class="memo-img" src="/img/html.png" alt="Html logo" />
-        <img class="memo-img" src="/img/JS.png" alt="JavaScript logo"/>
-        <img class="memo-img" src="/img/node.svg" alt="Node logo" />
-        <img class="memo-img" src="/img/react.png" alt="React logo" />
-      </div> -->
     </main>
+    <section id="win" class="container d-none flex-column justify-content-center align-items-center "> 
+      <h3>YOU WIN!</h3>
+      <button id="play-again" class="btn btn-success mt-3">Play again</button>
+    </section>
     <footer class="footer credits">
       <div class="container-fluid d-flex justify-content-center">
         <p>
