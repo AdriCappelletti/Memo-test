@@ -25,14 +25,16 @@ $playBtn.onclick = function () {
   $resetBtn.classList.replace("btn-dark", "btn-success");
   const newArray = reorderArray(images);
   imgAssignement(newArray);
-  catchCards();
   enableFlip();
+  catchCards();
+  roundHandler()
 };
 $resetBtn.onclick = function () {
   location.reload();
 };
 
 function roundHandler() {
+  
   if (points === 6) {
     gameEnd();
   }
@@ -98,7 +100,7 @@ function compareCards(arr) {
       attempts.textContent = ++attemptsCounter;
     }
   }
-  
+  removeOverlay()
   roundHandler();
 }
 
@@ -109,6 +111,7 @@ function catchCards() {
       comparedImages.push(cardsBack[i].style.backgroundImage);
       console.log(comparedImages);
       if (comparedImages.length === 2) {
+        createOverlay()
         setTimeout(() => {
           compareCards(comparedImages);
         }, 500);
@@ -134,3 +137,22 @@ function gameEnd() {
     location.reload();
   });
 }
+
+function createOverlay() {
+  const overlay = document.createElement('div')
+  overlay.className = 'overlay'
+  overlay.style.position = 'absolute'
+  overlay.style.top = '0'
+  overlay.style.height = '100%'
+  overlay.style.width = '100%'
+  document.querySelector('body').appendChild(overlay)
+}
+
+function removeOverlay() {
+  const overlay = document.querySelector('.overlay')
+  overlay.remove()
+}
+
+
+
+

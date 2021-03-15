@@ -4,11 +4,9 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   height: 100vh;
 }
-
-
 
 .card-body {
   height: 140px;
@@ -35,18 +33,16 @@ body{
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
-  background-size:cover;
-    background-position:center;
-    background-repeat: no-repeat;
-    transform: rotateY(180deg);
-}
-
-.card-front {
-  background-color:#000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transform: rotateY(180deg);
 }
 
-
+.card-front {
+  background-color: #000;
+  transform: rotateY(180deg);
+}
 
 .col- {
   padding: 0;
@@ -71,15 +67,13 @@ body{
   height: 30px;
 }
 
-.back-1{
-    background-image: url(/img/angular.png);
-    background-size:cover;
-    background-position:center;
-    background-repeat: no-repeat;
-    
+.back-1 {
+  background-image: url(/img/angular.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#win{
+#win {
   height: 50%;
 }
-
