@@ -26,7 +26,7 @@ $playBtn.onclick = function () {
   const newArray = reorderArray(images);
   imgAssignement(newArray);
   catchCards();
-  enableFlip();
+  roundHandler();
 };
 $resetBtn.onclick = function () {
   location.reload();
@@ -36,6 +36,9 @@ function roundHandler() {
   if (points === 6) {
     gameEnd();
   }
+
+  enableFlip(cardsBody);
+
   comparedCards = [];
   comparedImages = [];
 }
@@ -49,13 +52,16 @@ function reorderArray(a) {
 }
 
 function duplicateArrayValues(arr) {
-  arr.forEach((i, a, c) => {
+
+  arr.forEach((i) => {
+
     images.push(i);
   });
 }
 
-function enableFlip() {
-  cardsBody.forEach((card) => {
+
+function enableFlip(cards) {
+  cards.forEach((card) => {
     card.addEventListener("click", function () {
       card.classList.toggle("flipped");
     });
@@ -68,10 +74,13 @@ function unflipCards(cards) {
   });
 }
 
-function disableUserClick() {
-  console.log('se desabilita')
-  cardsBody.forEach((card) => {
-    card.onclick = function () {};
+
+function disableUserClick(cards) {
+  cards.forEach(card => {
+    card.addEventListener('click', function () {
+      return false
+    })
+
   });
 }
 
@@ -98,6 +107,62 @@ function compareCards(arr) {
       attempts.textContent = ++attemptsCounter;
     }
   }
+
+  removeOverlay();
+  roundHandler();
+}
+
+function catchCards() {
+  cardsBody.forEach((card, i) => {
+    card.addEventListener("click", function () {
+      comparedCards.push(card);
+      comparedImages.push(cardsBack[i].style.backgroundImage);
+      console.log(comparedImages);
+      if (comparedCards.length === 1) {
+        disableUserClick(comparedCards)
+      }
+      if (comparedImages.length === 2) {
+        createOverlay();
+        setTimeout(() => {
+          compareCards(comparedImages);
+        }, 500);
+      }
+    });
+  });
+}
+
+function deleteCards(cards) {
+  cards.forEach((card) => {
+    card.style.visibility = "hidden";
+  });
+}
+
+function gameEnd() {
+  const main = document.querySelector("main");
+  const winSection = document.querySelector("#win");
+  main.classList.replace("d-flex", "d-none");
+  winSection.classList.replace("d-none", "d-flex");
+  $resetBtn.disabled = "true";
+
+  $playAgainBtn.addEventListener("click", function () {
+    location.reload();
+  });
+}
+
+function createOverlay() {
+  const overlay = document.createElement("div");
+  overlay.className = "overlay";
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.height = "100%";
+  overlay.style.width = "100%";
+  document.querySelector("body").appendChild(overlay);
+}
+
+function removeOverlay() {
+  const overlay = document.querySelector(".overlay");
+  overlay.remove();
+
   
   roundHandler();
 }
@@ -133,4 +198,5 @@ function gameEnd() {
   $playAgainBtn.addEventListener("click", function () {
     location.reload();
   });
+
 }
