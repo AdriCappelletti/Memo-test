@@ -52,13 +52,10 @@ function reorderArray(a) {
 }
 
 function duplicateArrayValues(arr) {
-
   arr.forEach((i) => {
-
     images.push(i);
   });
 }
-
 
 function enableFlip(cards) {
   cards.forEach((card) => {
@@ -71,16 +68,6 @@ function enableFlip(cards) {
 function unflipCards(cards) {
   cards.forEach((card) => {
     card.classList.remove("flipped");
-  });
-}
-
-
-function disableUserClick(cards) {
-  cards.forEach(card => {
-    card.addEventListener('click', function () {
-      return false
-    })
-
   });
 }
 
@@ -119,7 +106,7 @@ function catchCards() {
       comparedImages.push(cardsBack[i].style.backgroundImage);
       console.log(comparedImages);
       if (comparedCards.length === 1) {
-        disableUserClick(comparedCards)
+        disableUserClick(comparedCards);
       }
       if (comparedImages.length === 2) {
         createOverlay();
@@ -163,7 +150,6 @@ function removeOverlay() {
   const overlay = document.querySelector(".overlay");
   overlay.remove();
 
-  
   roundHandler();
 }
 
@@ -193,10 +179,9 @@ function gameEnd() {
   const winSection = document.querySelector("#win");
   main.classList.replace("d-flex", "d-none");
   winSection.classList.replace("d-none", "d-flex");
-  $resetBtn.disabled = 'true'
+  $resetBtn.disabled = "true";
 
   $playAgainBtn.addEventListener("click", function () {
     location.reload();
   });
-
 }
