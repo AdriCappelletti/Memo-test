@@ -69,14 +69,6 @@ function unflipCards(cards) {
   });
 }
 
-function disableUserClick(cards) {
-  cards.forEach(card => {
-    card.addEventListener('click', function () {
-      return false
-    })
-  });
-}
-
 function imgAssignement(newArray) {
   let counter = 0;
   newArray.forEach((img) => {
