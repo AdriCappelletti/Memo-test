@@ -84,11 +84,9 @@ function compareCards(arr) {
   for (let i = 0; i < 1; i++) {
     const firstCard = arr[i];
     const secondCard = arr[i + 1];
-    console.log(firstCard === secondCard);
     if (firstCard === secondCard) {
       deleteCards(comparedCards);
       ++points;
-      console.log(points);
     } else {
       unflipCards(comparedCards);
       attempts.textContent = ++attemptsCounter;
@@ -104,7 +102,6 @@ function catchCards() {
     card.addEventListener("click", function () {
       comparedCards.push(card);
       comparedImages.push(cardsBack[i].style.backgroundImage);
-      console.log(comparedImages);
       if (comparedCards.length === 1) {
         disableUserClick(comparedCards);
       }
@@ -158,9 +155,8 @@ function catchCards() {
     card.addEventListener("click", function () {
       comparedCards.push(card);
       comparedImages.push(cardsBack[i].style.backgroundImage);
-      console.log(comparedImages);
       if (comparedImages.length === 2) {
-        createOverlay()
+        createOverlay();
         setTimeout(() => {
           compareCards(comparedImages);
         }, 500);
