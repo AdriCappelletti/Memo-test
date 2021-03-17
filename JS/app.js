@@ -70,7 +70,6 @@ function unflipCards(cards) {
 }
 
 function disableUserClick(cards) {
-  console.log("se desabilita");
   cards.forEach(card => {
     card.addEventListener('click', function () {
       return false
