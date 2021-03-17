@@ -160,6 +160,7 @@ function catchCards() {
       comparedImages.push(cardsBack[i].style.backgroundImage);
       console.log(comparedImages);
       if (comparedImages.length === 2) {
+        createOverlay()
         setTimeout(() => {
           compareCards(comparedImages);
         }, 500);
