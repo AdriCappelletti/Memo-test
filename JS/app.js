@@ -36,7 +36,9 @@ function roundHandler() {
   if (points === 6) {
     gameEnd();
   }
+
   enableFlip(cardsBody);
+
   comparedCards = [];
   comparedImages = [];
 }
@@ -50,10 +52,13 @@ function reorderArray(a) {
 }
 
 function duplicateArrayValues(arr) {
+
   arr.forEach((i) => {
+
     images.push(i);
   });
 }
+
 
 function enableFlip(cards) {
   cards.forEach((card) => {
@@ -69,11 +74,13 @@ function unflipCards(cards) {
   });
 }
 
+
 function disableUserClick(cards) {
   cards.forEach(card => {
     card.addEventListener('click', function () {
       return false
     })
+
   });
 }
 
@@ -100,6 +107,7 @@ function compareCards(arr) {
       attempts.textContent = ++attemptsCounter;
     }
   }
+
   removeOverlay();
   roundHandler();
 }
@@ -154,4 +162,41 @@ function createOverlay() {
 function removeOverlay() {
   const overlay = document.querySelector(".overlay");
   overlay.remove();
+
+  
+  roundHandler();
+}
+
+function catchCards() {
+  cardsBody.forEach((card, i) => {
+    card.addEventListener("click", function () {
+      comparedCards.push(card);
+      comparedImages.push(cardsBack[i].style.backgroundImage);
+      console.log(comparedImages);
+      if (comparedImages.length === 2) {
+        setTimeout(() => {
+          compareCards(comparedImages);
+        }, 500);
+      }
+    });
+  });
+}
+
+function deleteCards(cards) {
+  cards.forEach((card) => {
+    card.style.visibility = "hidden";
+  });
+}
+
+function gameEnd() {
+  const main = document.querySelector("main");
+  const winSection = document.querySelector("#win");
+  main.classList.replace("d-flex", "d-none");
+  winSection.classList.replace("d-none", "d-flex");
+  $resetBtn.disabled = 'true'
+
+  $playAgainBtn.addEventListener("click", function () {
+    location.reload();
+  });
+
 }
