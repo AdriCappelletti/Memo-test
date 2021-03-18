@@ -84,7 +84,8 @@ function compareCards(arr) {
   for (let i = 0; i < 1; i++) {
     const firstCard = arr[i];
     const secondCard = arr[i + 1];
-    if (firstCard === secondCard) {
+    if (comparedCards[0] === comparedCards[1]) {
+    } else if (firstCard === secondCard) {
       deleteCards(comparedCards);
       ++points;
     } else {
@@ -102,9 +103,6 @@ function catchCards() {
     card.addEventListener("click", function () {
       comparedCards.push(card);
       comparedImages.push(cardsBack[i].style.backgroundImage);
-      if (comparedCards.length === 1) {
-        disableUserClick(comparedCards);
-      }
       if (comparedImages.length === 2) {
         createOverlay();
         setTimeout(() => {
@@ -150,35 +148,8 @@ function removeOverlay() {
   roundHandler();
 }
 
-function catchCards() {
-  cardsBody.forEach((card, i) => {
-    card.addEventListener("click", function () {
-      comparedCards.push(card);
-      comparedImages.push(cardsBack[i].style.backgroundImage);
-      if (comparedImages.length === 2) {
-        createOverlay();
-        setTimeout(() => {
-          compareCards(comparedImages);
-        }, 500);
-      }
-    });
-  });
-}
-
 function deleteCards(cards) {
   cards.forEach((card) => {
     card.style.visibility = "hidden";
-  });
-}
-
-function gameEnd() {
-  const main = document.querySelector("main");
-  const winSection = document.querySelector("#win");
-  main.classList.replace("d-flex", "d-none");
-  winSection.classList.replace("d-none", "d-flex");
-  $resetBtn.disabled = "true";
-
-  $playAgainBtn.addEventListener("click", function () {
-    location.reload();
   });
 }
