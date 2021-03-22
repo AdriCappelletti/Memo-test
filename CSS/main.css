@@ -6,6 +6,7 @@
 
 body {
   height: 100vh;
+  position: relative;
 }
 
 .card-body {
@@ -78,4 +79,23 @@ body {
 #win {
   height: 50%;
 }
+
+.row{
+  width: 40vw;
+}
+
+
+@media screen and (max-width: 415px){
+  .credits{
+    bottom: auto;
+  }
+.card-body{
+  height: 100px;
+}
+  .row{
+    width: 95vw;
+    
+  }
+}
+
 
