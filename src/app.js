@@ -108,7 +108,7 @@ function handleUserClick(card) {
   comparedCards.push(card);
   comparedImages.push(card.style.backgroundImage);
   if (comparedCards.length === 2) {
-    // $cardsContainer.onclick = function () {}
+    $cardsContainer.onclick = function () {}
     setTimeout(() => {
       handleUserMovements();
     }, 600);
