@@ -8,6 +8,7 @@
     "start": "http-server",
     "cypress-run": "cypress run",
     "cypress-dev": "cypress open"
+
   },
   "keywords": [
     "Game",
