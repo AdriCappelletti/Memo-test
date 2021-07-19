@@ -17,6 +17,9 @@ El proyecto fue construido con HTML, Bootstrap, CSS, JS Vanilla y testeado con C
 
 Podes ver la demo del juego en el siguiente link: https://adricappelletti.github.io/Memo-test/
 
+![ScreenShot](https://github.com/AdriCappelletti/Memo-test/blob/gh-pages/img/memotest-demo.png)
+
+
 # instalation
 use
 npm -i
